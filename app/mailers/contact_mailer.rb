@@ -4,6 +4,6 @@ class ContactMailer < ApplicationMailer
     @email = contact_form.email
     @message = contact_form.message
 
-    mail(to: 'aliraxayasir@gmail.com', subject: 'Contact Form')
+    mail(to: @email, subject: 'Contact Form')
   end
 end
