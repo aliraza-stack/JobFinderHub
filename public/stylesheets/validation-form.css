@@ -1,0 +1,115 @@
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f3f3f3;
+    color: #333;
+    font-family: sans-serif;
+}
+
+.form-container {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+}
+
+.preloader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form-container h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"],
+.form-container input[type="tel"],
+.form-container select[class="select"] {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    background-color: #f3f3f3;
+}
+
+.form-button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pass-slash {
+    position: relative;
+    top: -48px;
+    right: -200px;
+    cursor: pointer;
+}
+
+.btn-separator {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: .1em;
+    font-weight: 300;
+}
+
+.btn-separator span {
+    padding: 0 10px;
+    background: #f3f3f3;
+    color: #606060;
+}
+
+.line-heading {
+    overflow: hidden;
+    text-align: center;
+}
+
+.line-heading:after, .line-heading:before {
+    background-color: #8f8e8e;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.line-heading:before {
+    right: 10px;
+    margin-left: -50%;
+}
+
+.line-heading:after {
+    left: 10px;
+    margin-right: -50%;
+}

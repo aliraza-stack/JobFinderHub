@@ -1,0 +1,214 @@
+<%#= render "shared/background" %>
+
+<section class="" style="background-color: #eee;">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item">
+              <a href="profile/<%= current_user.id %>" class="text-muted"><%= current_user.name %></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, height: 120, width: 120, class: "rounded-circle" %>
+            <% else %>
+              <%= image_tag "", height: 120, width: 120, class: "gambar rounded-circle" %>
+            <% end %>
+            <h5 class="my-3"><%= @profile.name %></h5>
+            <% if current_user.role = "labor" %>
+              <p class="text-muted mb-1 badge badge-primary text-capitalize"><%= @profile.skill %></p>
+            <% end %>
+            <p class="text-muted mb-1 badge badge-primary text-capitalize"><%= @profile.role %></p>
+            <p class="text-muted my-4"><%= formatted_address(@profile) %></p>
+            <div class="d-flex justify-content-center mb-2">
+              <%= link_to "Edit Profile", edit_user_registration_path(current_user.name), class: "btn btn-primary" %>
+              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fas fa-home fa-lg text-primary"></i>
+                <p class="mb-0"><a href="/">Home</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @profile.name %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Father Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @profile.father_name %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @profile.phone %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @profile.email %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= formatted_address(@profile) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> Project Status
+                </p>
+                <p class="mb-1" style="font-size: .77rem;">Sample Job</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                       aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> Project Status
+                </p>
+                <p class="mb-1" style="font-size: .77rem;">Sample Job</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                       aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="pb-5" style="background-color: #eee;">
+  <div class="container py-1 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card mb-5" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <h3 class="mb-3">About</h3>
+            <p class="small mb-0">
+              <i class="fas fa-user fa-lg"></i>
+              <span class="mx-2">|</span>
+              <span class="badge badge-primary text-capitalize" style="font-size: 14px">
+              <% if current_user.role == "labor" %>
+              <%= @profile.role %>
+              <% end %>
+              </span>
+              <span class="mx-2">|</span>
+              Created by
+              <strong><%= @profile.name %></strong>
+              on
+              <span class="badge badge-primary" style="font-size: 14px"><%= @profile.created_at.to_date %></span>
+            </p>
+            <p class="mt-3">
+            <p class="description">
+              <%= truncate(@profile.description, length: 300) %>
+            </p>
+
+            <button class="read-more-btn">Read More</button>
+            </p>
+            <hr class="my-4">
+            <div class="d-flex justify-content-start align-items-center">
+              <p class="mb-0 text-uppercase"><i class="fas fa-edit me-2"></i> <span
+                class="small"><a href="<%= edit_user_registration_path(current_user.name) %>" class="text-muted">Update About</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <h3 class="mb-3">Jobs</h3>
+            <p class="small mb-0"><i class="fas fa-star fa-lg text-warning"></i> <span class="mx-2">|</span>
+              Name <span class="mx-2">|</span> Updated by <strong>User</strong> on 11 April , 2021
+            </p>
+            <hr class="my-4">
+            <div class="d-flex justify-content-start align-items-center">
+              <p class="mb-0 text-uppercase"><i class="fas fa-cog me-2"></i> <span
+                class="text-muted small">settings</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<%= render 'shared/footer' %>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+    const description = document.querySelector('.description');
+    const readMoreBtn = document.querySelector('.read-more-btn');
+
+    readMoreBtn.addEventListener('click', function () {
+        if (readMoreBtn.innerHTML === 'Read More') {
+            description.innerHTML = '<%= @profile.description %>';
+            readMoreBtn.innerHTML = 'Read Less';
+        } else {
+            description.innerHTML = '<%= truncate(@profile.description, length: 300) %>';
+            readMoreBtn.innerHTML = 'Read More';
+        }
+    });
+</script>

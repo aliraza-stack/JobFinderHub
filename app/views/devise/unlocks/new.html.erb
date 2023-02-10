@@ -1,0 +1,12 @@
+<section class="form-section vh-100">
+  <div class="form-container">
+    <h1 class="mb-5">Resend unlock instructions</h1>
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email" %>
+
+      <%= f.submit "Resend unlock instructions", class: "form-button" %>
+    <% end %>
+  </div>
+</section>

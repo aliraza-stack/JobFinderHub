@@ -1,0 +1,44 @@
+<!--<div class="mb-3">
+  <%# if resource.errors.any? %>
+    <div class="note note-danger">
+        <h6 class="card-title m-0 p-0 float-start fw-bold">
+          <%= I18n.t("errors.messages.not_saved",
+                     count: resource.errors.count,
+                     resource: resource.class.model_name.human.downcase)
+%>
+        </h6><br>
+          <%# resource.errors.full_messages.each do |message| %>
+          <li class="text-start ms-3">
+            <%#= message %>
+          </li>
+        <%# end %>
+    </div>
+  <%# end %>
+</div>-->
+
+<div id="flash-messages">
+  <% if resource.errors.any? %>
+    <div class="toaster-container fade-out-alert note note-danger p-0">
+      <div id="liveToast" class="toast toast-danger show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="liveToastHead" class="toast-header toast-danger pb-1">
+          <i class="fa fa-exclamation-triangle alert-icon fa-fw me-2"></i>
+          <strong class="me-auto text-uppercase">
+            <%= I18n.t("errors.messages.not_saved",
+                       count: resource.errors.count,
+                       resource: resource.class.model_name.human.downcase)
+            %>
+          </strong>
+        </div>
+        <div class="toast-body">
+          <ol class="px-0 mb-0">
+          <% resource.errors.full_messages.each do |error_message| %>
+              <li class="text-start ms-3 mb-1">
+                <%= error_message %>
+              </li>
+          <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

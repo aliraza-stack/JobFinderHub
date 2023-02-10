@@ -1,0 +1,39 @@
+<section class="d-flex flex-row">
+  <div class="col-9">
+    <div class="card">
+      <div class="w-100 border border-3">
+        <div class=" text-center text-dark alert alert-primary mb-0 rounded-0">Map View</div>
+        <div class="row">
+          <div class="col-lg-12">
+            <!--Google map start -->
+            <div id="map" style="height: 85vh; width: 100%">
+
+            </div>
+            <!--Google map end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card rounded-0 border-3 border">
+        <h4 class="alert alert-secondary text-center rounded-0">List of labors</h4>
+      <div class="card-body overflow-y-scroll" style="height: 82.8vh; width: 100%">
+        <% @users.where(role: 'labor').each do |user| %>
+<div class="note note-primary mb-3">
+  <%= user.name %> <br>
+  <%= user.email %>
+</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+    var currentUser = <%= current_user.to_json.html_safe %>;
+
+    var laborUsers = <%= @labor_users.to_json.html_safe %>;
+
+</script>

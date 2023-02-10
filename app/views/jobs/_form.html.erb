@@ -1,0 +1,50 @@
+<section class="form-section pb-5">
+
+  <div class="w-100">
+    <div class="bg-gray py-3">
+      <h2 class="ms-5 mt-3 fw-bold">Job Board</h2>
+    </div>
+
+    <div class="container my-5">
+      <div class="d-flex flex-column align-items-center">
+        <div class="col-8">
+        <h3 class="px-5 me-auto">Post New Job</h3>
+          <div class="card-body">
+            <%= form_with(model: job, html: { class: "needs-validation", novalidate: true }) do |form| %>
+
+
+              <%= render "shared/job-alert", job: @job %>
+              <div class="px-5 d-flex flex-column">
+                <%= form.text_field :user_id, value:current_user.id,class: "d-none", required: true, readonly:true %>
+                <%= form.label :title, class:"fw-light" %>
+                <%= form.text_field :title, autofocus: true, id: "name", placeholder: "Title", class: "form-control mb-3", required: true %>
+                <%= form.label :required_skill, class:"fw-light"  %>
+                <%= form.text_field :required_skills, id: "required_skills", placeholder: "Required Skill", class: "form-control mb-3", required: true %>
+                <%= form.label :contact, class:"fw-light"  %>
+                <%= form.text_field :contact, id: "contact", placeholder: "Contact", class: "form-control mb-3", required: true %>
+                <%= form.label :budget, class:"fw-light"  %>
+                <%= form.number_field :salary, id: "salary", placeholder: "Budget", class: "form-control mb-3", required: true %>
+                <%= form.label :work_location, class:"fw-light" %>
+                <%= form.text_field :job_type, id: "job_type", placeholder: "Work Location", class: "form-control mb-3", required: true %>
+                <%= form.label :city, class:"fw-light"  %>
+                <%= form.text_field :company, id: "company", placeholder: "City", class: "form-control mb-3", required: true %>
+                <%= form.label :application_deadline, class:"fw-light"  %>
+                <%= form.date_field :application_deadline, id: "application_deadline", placeholder: "Application Deadline", class: "form-control mb-3", required: true %>
+                <%= form.label :description, class:"fw-light"  %>
+                <%= form.text_area :description, id: "description", rows: 9, placeholder: "Description", class: "form-control mb-3", required: true %>
+
+                <div class="d-flex justify-content-end">
+                  <%= form.submit "Create Job", class: "btn btn-primary fw-bold" %>
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%= render "shared/footer" %>

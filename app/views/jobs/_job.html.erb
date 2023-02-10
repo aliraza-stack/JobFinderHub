@@ -1,0 +1,76 @@
+
+<div class="container mt-3">
+      <div id="<%= dom_id job %>">
+        <div class="mb-4 d-flex justify-content-end">
+          <%= link_to "Send Mail", new_issue_path, class: "btn btn-primary" %>
+        </div>
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Title</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.title %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Required skill</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.required_skills %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Salary</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.salary %> Rs</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Contact</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.contact %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.job_type + " " + job.company %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Application deadline</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.application_deadline %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Description</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= job.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

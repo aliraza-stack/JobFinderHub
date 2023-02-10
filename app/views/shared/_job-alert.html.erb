@@ -1,0 +1,12 @@
+<div class="mx-5 ">
+    <% if job.errors.any? %>
+  <div class="text-danger alert alert-danger">
+        <h5 class="fw-bold "><%= pluralize(job.errors.count, "Error") %> prohibited this job from being created</h5>
+        <ul>
+          <% job.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+    </div>
+    <% end %>
+</div>

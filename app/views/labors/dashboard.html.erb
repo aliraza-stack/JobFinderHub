@@ -1,0 +1,75 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-10 mx-auto mb-4">
+      <div class="section-title text-center ">
+        <h3 class="top-c-sep">Grow your career with us</h3>
+        <p>Looking to advance your career as a skilled laborer? Look no further than our labor marketplace. With a wide
+          variety of job opportunities available, you can find the right fit for your skills and experience. Our
+          platform connects you with top employers, allowing you to showcase your abilities and grow your career. Join
+          us today and take your career to the next level.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <div class="career-search mb-60">
+        <form action="" class="career-form mb-60">
+          <div class="row">
+            <div class="col-md-6 col-lg-9 my-3">
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Enter Your Keywords" id="keywords">
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 my-3">
+              <button type="button" class="btn btn-block btn-light btn-custom" id="contact-submit">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <p class="mb-30 ff-montserrat note note-primary mt-2">Total open jobs : <%= @jobs_count %></p>
+        <% @jobs.each do |job| %>
+          <div class="filter-result">
+            <div class="job-box d-md-flex align-items-center justify-content-between mb-30 mt-3">
+              <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                <div class="job-content">
+                  <h5 class="text-md-left"><%= job.title %></h5>
+                  <ul class="d-md-flex flex-wrap text-capitalize ps-0">
+                    <li class="me-md-4">
+                      <i class="fas fa-user-md me-2"></i><%= job.required_skills %>
+
+                    </li>
+                    <li class="me-md-4">
+                      <i class="fas fa-hand-holding-usd me-2"></i><%= job.salary %> Rs
+                    </li>
+                    <li class="me-md-4">
+                      <i class="fas fa-clock me-2"></i><%= job.application_deadline %>
+                    </li>
+                    <li class="me-md-4">
+                      <i class="fas fa-home me-2"></i><%= job.job_type + " " + job.company %>
+                    </li>
+                    <li class="me-md-4">
+                      <i class="fas fa-phone me-2"></i><%= job.contact %>
+                    </li>
+                  </ul>
+                  <p class="mt-3">
+                  <p class="description">
+                    <%= truncate(job.description, length: 100) %>
+                  </p>
+                  </p>
+                </div>
+
+              </div>
+              <div class="job-right my-4 flex-shrink-0">
+                <%= link_to "Show this job", job, class: "btn d-block w-100 d-sm-inline-block btn-light" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+          </div>
+        </div>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div id="flash-messages">
+  <% flash.each do |key, value| %>
+    <div class="toaster-container fade-out-alert">
+      <div id="liveToast" class="toast toast-success show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="liveToastHead" class="toast-header toast-success pb-1">
+          <i class="fa fa-info-circle alert-icon fa-fw me-2"></i>
+          <strong class="me-auto text-uppercase"><%= key %></strong>
+        </div>
+        <div class="toast-body">
+          <%= value %>
+        </div>
+      </div>
+    </div>
+    <script>
+        changeAlertIcon("<%=key %>");
+        changeClass("<%=key %>");
+    </script>
+  <% end %>
+</div>

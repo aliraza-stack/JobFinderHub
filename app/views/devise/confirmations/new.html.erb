@@ -1,0 +1,15 @@
+<section class="form-section vh-100">
+  <div class="form-container">
+    <h1 class="mb-5">Resend confirmation instructions</h1>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "needs-validation", novalidate: true }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group mb-5">
+        <%= f.email_field :email, class:"form-control", autofocus: true, placeholder:"Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), required: true, pattern: '^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$' %>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
+
+      <%= f.submit "Resend confirmation instructions", class: "form-button" %>
+    <% end %>
+  </div>
+</section>

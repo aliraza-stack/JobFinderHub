@@ -1,0 +1,16 @@
+development:
+
+test:
+
+production:
+  # asset_host: <%= "https://#{ENV["URL_HOST"]}" %>
+  # default_url_options:
+  #   host: <%= ENV["URL_HOST"] %>
+  # smtp_settings:
+  #   user_name: <%= ENV["SMTP_USER_NAME"] %>
+  #   password: <%= ENV["SMTP_PASSWORD"] %>
+  #   domain: <%= ENV["SMTP_DOMAIN"] %>
+  #   address: <%= ENV["SMTP_ADDRESS"] %>
+  #   port: <%= ENV["SMTP_PORT"] %>
+  #   authentication: <%= ENV["SMTP_AUTHENTICATION"]&.to_sym %>
+  #   enable_starttls_auto: true

@@ -1,0 +1,48 @@
+<section class="form-section vh-100">
+  <div class="form-container">
+    <h1>Sign In</h1>
+    <%= form_for(resource, as: resource_name, html: { class: "needs-validation", novalidate: true }, url: session_path(resource_name)) do |f| %>
+
+      <div class="form-group mb-4">
+        <%= f.email_field :email, class:"form-control", autofocus: true, placeholder:"Email", id:"email", required: true, pattern: '^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$' %>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
+      <div class="mb-2">
+        <%= f.password_field :password, placeholder:"Password", id:"password1", class:"form-control", required: true  %>
+        <div class="invalid-feedback">Please enter a valid password.</div>
+        <i class="pass-slash far fa-eye-slash" id="eye1"></i>
+      </div>
+
+      <!-- 2 column grid layout -->
+      <div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center">
+          <!-- Checkbox -->
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check mb-3 mb-md-0">
+              <input class="form-check-input" type="checkbox" value=""/>
+              <label class="form-check-label"> Remember me </label>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center">
+          <!-- Simple link -->
+          <%= link_to "Forgot password?", new_password_path(resource_name) %>
+        </div>
+      </div>
+
+      <%= f.submit "Sign in", class: "form-button" %>
+    <% end %>
+    <div class="line-heading pb-2 my-3 text-muted">
+      Don't have an account?
+    </div>
+    <%= link_to "Create Account", new_user_registration_path, class:"btn btn-block btn-success rounded rounded-pill " %>
+
+    <p class="btn-separator my-4">
+      <span>or</span>
+    </p>
+
+    <%= link_to "Resend confirmation email", new_user_confirmation_path, class:"btn btn-block btn-outline-dark rounded rounded-pill" %>
+    <%= link_to "Resend unlock email", new_user_unlock_path, class:"btn btn-block btn-outline-danger rounded rounded-pill " %>
+  </div>
+</section>

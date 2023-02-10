@@ -1,0 +1,190 @@
+<%#= render "shared/background" %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "needs-validation", novalidate: true }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="border border-2">
+    <div class="bg-white">
+      <div class="d-flex flex-row">
+        <div class="col-md-3 px-2">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <div class="container">
+              <div class="d-flex flex-row justify-content-center">
+                <div class="col-12">
+                  <% if resource.avatar.attached? %>
+                    <%= image_tag @user.avatar, height: 200, width: 200, class: "img-responsive img-thumbnail rounded-circle" %>
+                  <% else %>
+                    <%= image_tag "https://api.dicebear.com/5.x/adventurer-neutral/svg?seed=Angel", height: 200, width: 200, class: "img-responsive img-thumbnail rounded-circle" %>
+                  <% end %>
+                </div>
+                <div class="edit-icon ms-8 shadow shadow-1">
+                  <%= content_tag :i, "", class: "fas fa-edit", id: "avatar-icon" %>
+                  <%= f.file_field :avatar, accept: "image/jpeg,image/jpg,image/png", class: "d-none", id: "avatar-input" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border border-dark shadow shadow-1 ms-2">
+            <div class="card-content">
+              <div class="text-center my-2">
+                <h4><u><%= current_user.name %></u></h4>
+                <h6 class="badge badge-primary ms-2">
+                  <% if current_user.role == "labor" %>
+                    <%= current_user.skill %>
+                  <% elsif current_user.role == "user" %>
+                    <%= current_user.role %>
+                  <% end %>
+                </h6> <br>
+                <div class="badge badge-info fs-5 ms-2"><%= current_user.email %></div>
+              </div>
+            </div>
+          </div>
+          <div class="ms-2">
+            <div class="form-group my-4">
+              <label class="">About</label>
+              <%= f.text_area :description, id: "description", rows: 9, class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you about.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 border-2 border-start border-end">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Profile Settings</h4>
+            </div>
+
+            <div class="form-group mb-4">
+              <label class="">Full Name</label>
+              <%= f.text_field :name, id: "fullname", class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you name.</div>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Father Name</label>
+              <%= f.text_field :father_name, id: "fullname", class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you father name.</div>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">CNIC</label>
+              <%= f.text_field :cnic, class: "form-control", id: "cnic", autocomplete: true, required: true, pattern: '^\d{13}$' %>
+              <div class="invalid-feedback">Please enter you National ID card number.</div>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Date of Birth</label>
+              <%= f.date_field :dob, id: "dob", class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you date of birth.</div>
+            </div>
+            <div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div class="text-danger note note-secondary mb-2 fs-size py-1">
+                  Your email address is not confirmed yet.
+                  Please check your email and click on the confirmation link to confirm your email address.
+                </div>
+                <div class="badge badge-danger mb-2 fs-size">Currently waiting confirmation
+                  for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Phone Number</label>
+              <%= f.text_field :phone, class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you phone number.</div>
+            </div>
+            <div class="text-muted note note-secondary mb-2 fs-size py-1">
+              Leave blank if you don't want to change your password.
+            </div>
+            <div class="form-group mb-4">
+              <label class="">New Password</label>
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Confirm New Password</label>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Current Password</label>
+              <%= f.password_field :current_password, class: "form-control", required: true %>
+              <div class="invalid-feedback">Please enter you current password to save the changes.</div>
+            </div>
+            <div class="">
+            </div>
+            <div class="mt-5 text-center">
+              <%= f.submit "Update Profile", class: "btn btn-success rounded-3 bg-gradient profile-button" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <% if current_user.role == "labor" %>
+            <div class="px-3 pt-5 ">
+              <div class="fs-4 mb-3">
+                <strong>Skill Information</strong>
+              </div>
+              <div class="form-group mb-4">
+                <label class="">Skill</label>
+                <%= f.text_field :skill, class:"form-control text", required:true %>
+                <div class="invalid-feedback">Please enter you role (Eg: Plumber).</div>
+                <%#= f.select :skill, options_for_select([["Plumber", "plumber"], ["Builder", "builder"]]), {}, { class: "form-control" } %>
+              </div>
+            </div>
+          <% end %>
+          <div class="px-3 pt-5">
+            <div class="fs-4 mb-3">
+              <strong>Address Information</strong>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Latitude</label>
+              <%= f.text_field :latitude, class: "form-control", id: "latitude", required: true, readonly:true %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Longitude</label>
+              <%= f.text_field :longitude, class: "form-control", id: "longitude", required: true, readonly:true %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Address</label>
+              <%= f.text_field :address, class: "form-control", id: "address", placeholder: "Home town", required: true %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Street</label>
+              <%= f.text_field :street, class: "form-control", id: "street", placeholder: "Street (Optional)" %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">City</label>
+              <%= f.text_field :city, class: "form-control" %>
+              <%#= f.select :city, options_for_select([["Karachi", "Karachi"], ["Lahore", "Lahore"], ["Islamabad", "Islamabad"], ["Sahiwal", "Sahiwal"]]), {}, { class: "form-control" } %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">State</label>
+              <%= f.text_field :state, class: "form-control" %>
+              <%#= f.select :state, options_for_select([["Punjab", "Punjab"], ["Sindh", "Sindh"]]), {}, { class: "form-control" } %>
+            </div>
+            <div class="form-group mb-4">
+              <label class="">Zip Code</label>
+              <%= f.text_field :zip, class: "form-control", placeholder: "Zip Code", required: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="card bg-white border rounded-0 px-0 my-5">
+  <div class="card-header text-center pb-0">
+    <h3>Permanently delete account &#128543;</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="d-flex">
+      <div class="my-auto">
+        By deleting your account, you will lose access to all your data and information. This action is
+        irreversible.
+      </div>
+      <div class="col-5 d-flex justify-content-end">
+        <%= button_to "Delete Permanently", registration_path(resource_name), class: "btn btn-danger sm-btn bg-gradient", data: { confirm: "Are you sure?" }, method: :delete %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<%= render "shared/footer" %>

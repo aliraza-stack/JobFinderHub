@@ -1,0 +1,154 @@
+<%= render "shared/background" %>
+<script type="text/javascript" charset="utf-8">
+    document.onload = function () {
+        console.log('hehehe');
+        document.getElementsByTagName("svg")[0].style.position = "absolute";
+    }
+
+</script>
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="hero-title text-success">How work <br> Should work</h1>
+        <p class="hero-subtitle text-white fs-5">
+          Don't miss out on the opportunity to find the perfect freelancer for your project. With a free account,
+          you can browse our extensive network of talented professionals and easily hire the right person for the
+          job. Sign up now and start building your dream team today.
+        </p>
+        <a href="/register" class="btn btn-success btn-lg rounded-pill">Sign up now</a>
+      </div>
+      <div class="col-md-6">
+        <img src="<%= asset_path 'sapiens.png' %>" class="img-fluid" alt="Hero Image">
+      </div>
+    </div>
+    <div class="">
+      <%= render "shared/developer-intro" %>
+    </div>
+  </div>
+</section>
+
+<section class="pt-5">
+  <div class="container rubik">
+    <div class="card p-5 bg-gray bg-gradient">
+      <h1 class="mb-5">Browse talent by category</h1>
+      <div class="d-flex col-md-12 d-flex justify-content-between">
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="d-flex col-md-12 d-flex justify-content-between py-3">
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+        <a class="card category-tile" href="/">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Plumbers</h5>
+            <p class="card-text mx-4 text-muted">
+              200 skills
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5">
+  <div class="container">
+    <div class="card bg-dark text-white">
+      <img src="<%= asset_path "homepage2.jpg" %>" class="card-img" alt="Home Page"/>
+      <div class="row align-items-center card-img-overlay">
+        <div class="">
+          <h5 class="card-title hero-title text-success rubik fw-bolder">Find talent <br> your way</h5>
+          <p class="card-text rubik fs-3 mt-5 text-white">
+            Work with the largest network of independent professionals and get things done—from quick turnarounds to big
+            transformations.
+            We are dedicated to providing our clients with high-quality workmanship, quick service, and affordable
+            prices. We are available 24/7 to help you with any of your labor needs, whether it's a small repair or a
+            large construction project.
+          </p>
+          <div class="d-flex col-md-12 d-flex justify-content-between mt-5 pt-4">
+            <a class="card rebrand-tile" href="/">
+              <div class="card-body">
+                <h2 class="card-title">Post a job and hire a pro</h2>
+                <p class="card-text fs-4">
+                  Talent Marketplace
+                </p>
+              </div>
+            </a>
+            <a class="card rebrand-tile" href="/">
+              <div class="card-body">
+                <h2 class="card-title">Browse and hire talented labor</h2>
+                <p class="card-text fs-4">
+                  Labor catalog
+                </p>
+              </div>
+            </a>
+            <a class="card rebrand-tile" href="/">
+              <div class="card-body">
+                <h2 class="card-title">Let us help you find the right talent</h2>
+                <p class="card-text fs-4">
+                  Talent Scout
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render "shared/footer" %>

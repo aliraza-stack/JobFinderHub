@@ -1,0 +1,151 @@
+<%= render "shared/background" %>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+
+    .contact-container {
+        max-width: 80%;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea,
+    #contact button[type="submit"] {
+        font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+    }
+
+    #contact {
+        background: #dadcda;
+        padding: 2rem;
+        margin: 6rem 0;
+        border-radius: 10px;
+    }
+
+    #contact h3 {
+        color: #26cb1a;
+        display: block;
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    #contact h4 {
+        margin: 5px 0 15px;
+        display: block;
+        font-size: 13px;
+    }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
+
+    #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+        width: 100%;
+        border: 1px solid #CCC;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+    }
+
+    #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+        -webkit-transition: border-color 0.3s ease-in-out;
+        -moz-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border: 1px solid #AAA;
+    }
+
+    #contact textarea {
+        height: 100px;
+        max-width: 100%;
+        resize: none;
+    }
+
+    #contact-submit {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #26cb1a;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 7px;
+        font-size: 15px;
+    }
+
+    #contact button[type="submit"]:hover {
+        background: #09C;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #contact button[type="submit"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    #contact input:focus, #contact textarea:focus {
+        outline: 0;
+        border: 1px solid #999;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    :-moz-placeholder {
+        color: #888;
+    }
+
+    ::-moz-placeholder {
+        color: #888;
+    }
+
+    :-ms-input-placeholder {
+        color: #888;
+    }
+
+</style>
+
+
+<section class="hero-section">
+  <div class="contact-container">
+    <%= form_with html: { id: "contact", class: "card bg-gradient needs-validation", novalidate: true }, model: @contact_form do |form| %>
+      <h1 class="fw-bold text-success">Contact</h1>
+      <h4>Contact us today, and get reply with in 24 hours!</h4>
+
+      <fieldset>
+        <div class="form-group mb-4">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control mb-3", placeholder: "Your name", required: true %>
+          <div class="invalid-feedback ms-2">Please enter name.</div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group mb-4">
+          <%= form.label :email %>
+          <%= form.email_field :email, class: "form-control mb-3", placeholder: "Your Email Address", required: true, pattern: '^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$' %>
+          <div class="invalid-feedback ms-2">Please enter a valid email address.</div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group mb-4">
+          <%= form.label :message %>
+          <%= form.text_area :message, class: "form-control mb-3", rows: 5, placeholder: "Type your Message Here....", required: true %>
+          <div class="invalid-feedback ms-2">Please enter a message.</div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= form.submit "Send message", class: "fw-bold bg-success rounded rounded-pill", id: "contact-submit" %>
+      </fieldset>
+    <% end %>
+  </div>
+</section>

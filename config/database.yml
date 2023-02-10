@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["JFH_USERNAME"] %>
+  password: <%= ENV["JFH_PASSWORD"] %>
+  host: <%= ENV["JFH_HOST"] %>
+  port: <%= ENV["JFH_PORT"] %>
+
+development:
+  <<: *default
+  database: <%= ENV["DEVELOPMENT"] %>
+
+test:
+  <<: *default
+  database: <%= ENV["TEST"] %>
+
+production:
+  <<: *default
+  database: <%= ENV["PRODUCTION"] %>
+  username: <%= ENV["USERNAME_PRODUCTION"] %>
+  password: <%= ENV["JOBFINDERHUB_DATABASE_PASSWORD"] %>

@@ -1,0 +1,10 @@
+.toaster-container {
+    top: 70px;
+    right: 10px;
+    position: fixed;
+}
+
+.toast {
+    width: 500px;
+    max-width: 100%;
+}
