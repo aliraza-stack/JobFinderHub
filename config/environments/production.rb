@@ -114,6 +114,7 @@ Rails.application.configure do
     :domain => 'https://job-finder-hub.herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
+    from: 'associate-portfolio@aliraza.live',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
