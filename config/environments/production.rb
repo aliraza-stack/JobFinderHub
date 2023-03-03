@@ -100,12 +100,24 @@ Rails.application.configure do
   config.action_mailer.default charset: "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '7eb96c139bf345',
-    :password => '1163b78ccc5cd4',
-    :address => 'sandbox.smtp.mailtrap.io',
-    :domain => 'sandbox.smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
+    :user_name => 'apikey',
+    :password => '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',
+    :domain => 'https://job-finder-hub.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
+
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => 'apikey',
+  #   :password => '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',
+  #   :domain => 'https://job-finder-hub.herokuapp.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
+  # ActionMailer::Base.delivery_method = :smtp
 
 end
