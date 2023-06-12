@@ -17,11 +17,12 @@ gem "devise"
 gem 'activeadmin'
 gem "sassc-rails"
 gem "gravatar_image_tag", github: "mdeering/gravatar_image_tag"
+gem "dotenv-rails"
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
-  gem "dotenv-rails"
   gem "letter_opener"
   gem "faker", "~> 3.0"
 end
